@@ -2,14 +2,12 @@ import pygame
 import sys
 
 # --- 1. Initialization and Setup ---
-# Initialize Pygame modules
 pygame.init()
 
-# Define constants
 WIDTH, HEIGHT = 800, 600
 PADDLE_WIDTH, PADDLE_HEIGHT = 15, 100
 BALL_SIZE = 15
-FPS = 60 # Frames Per Second for smooth animation
+FPS = 60
 
 # Colors
 WHITE = (255, 255, 255)
@@ -96,7 +94,6 @@ def reset_ball():
     """Resets the ball to the center and reverses its horizontal direction."""
     global ball_x_speed, ball_y_speed
     ball.center = (WIDTH // 2, HEIGHT // 2)
-    # Give the point winner the serve (reverse the horizontal direction)
     ball_x_speed *= -1
 
 def draw_elements():
@@ -108,7 +105,7 @@ def draw_elements():
     pygame.draw.rect(screen, WHITE, player_b)
     pygame.draw.ellipse(screen, WHITE, ball)
     
-    # Draw Center Line (Optional)
+    # Draw Center Line
     pygame.draw.aaline(screen, WHITE, (WIDTH // 2, 0), (WIDTH // 2, HEIGHT))
 
     # Draw Score
@@ -161,4 +158,5 @@ while running:
     pygame.display.flip()
     
     # Control the frame rate
+
     clock.tick(FPS)
