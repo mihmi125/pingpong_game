@@ -14,19 +14,19 @@ WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 GREEN = (0, 255, 0)
 
-# Setup the window (surface)
+# Setup the window
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Pygame Pong")
 clock = pygame.time.Clock()
 
 # --- 2. Game Objects ---
 
-# Paddles (Rectangles)
+# Paddles
 # Rect(left, top, width, height)
 player_a = pygame.Rect(50, HEIGHT // 2 - PADDLE_HEIGHT // 2, PADDLE_WIDTH, PADDLE_HEIGHT)
 player_b = pygame.Rect(WIDTH - 50 - PADDLE_WIDTH, HEIGHT // 2 - PADDLE_HEIGHT // 2, PADDLE_WIDTH, PADDLE_HEIGHT)
 
-# Ball (Rectangle)
+# Ball
 ball = pygame.Rect(WIDTH // 2 - BALL_SIZE // 2, HEIGHT // 2 - BALL_SIZE // 2, BALL_SIZE, BALL_SIZE)
 
 # Movement Speeds
@@ -38,7 +38,7 @@ ball_y_speed = 4
 # Score
 score_a = 0
 score_b = 0
-font = pygame.font.Font(None, 74) # Default font, size 74
+font = pygame.font.Font(None, 74)
 
 # --- 3. Game Functions ---
 
@@ -80,13 +80,11 @@ def move_ball():
     # Paddle Collisions
     # Check if ball hits Paddle A (Left)
     if ball.colliderect(player_a):
-        # Move ball back slightly to prevent sticking
         ball.left = player_a.right
         ball_x_speed *= -1
 
     # Check if ball hits Paddle B (Right)
     if ball.colliderect(player_b):
-        # Move ball back slightly to prevent sticking
         ball.right = player_b.left
         ball_x_speed *= -1
 
@@ -100,15 +98,15 @@ def draw_elements():
     """Draws all game elements on the screen."""
     screen.fill(BLACK)
     
-    # Draw Paddles and Ball
+    #Walls and Ball
     pygame.draw.rect(screen, WHITE, player_a)
     pygame.draw.rect(screen, WHITE, player_b)
     pygame.draw.ellipse(screen, WHITE, ball)
     
-    # Draw Center Line
+    #Draw Center Line
     pygame.draw.aaline(screen, WHITE, (WIDTH // 2, 0), (WIDTH // 2, HEIGHT))
 
-    # Draw Score
+    #Score
     text_a = font.render(str(score_a), 1, WHITE)
     screen.blit(text_a, (WIDTH // 4, 20))
     text_b = font.render(str(score_b), 1, WHITE)
@@ -116,9 +114,9 @@ def draw_elements():
 
 
 # --- 4. Main Game Loop ---
+
 running = True
 while running:
-    # Event Handling (Input)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
@@ -138,7 +136,7 @@ while running:
             if event.key == pygame.K_DOWN:
                 player_b_speed = 6
 
-        # Keypress UP (Stop movement)
+        # Keypress UP
         if event.type == pygame.KEYUP:
             # Player A
             if event.key == pygame.K_w or event.key == pygame.K_s:
@@ -147,16 +145,10 @@ while running:
             if event.key == pygame.K_UP or event.key == pygame.K_DOWN:
                 player_b_speed = 0
 
-    # Game Logic Updates
     move_paddles()
     move_ball()
-    
-    # Drawing
+
     draw_elements()
 
-    # Update the full display Surface to the screen
     pygame.display.flip()
-    
-    # Control the frame rate
-
     clock.tick(FPS)
