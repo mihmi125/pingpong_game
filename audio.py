@@ -12,9 +12,12 @@ class AudioManager:
         self.sounds = {}
 
     def load_sfx(self, name, path):
-        """Load a sound into memory if the file exists on disk."""
+        """Safely loads a sound and prints a message if it fails."""
         if os.path.exists(path):
             self.sounds[name] = pygame.mixer.Sound(path)
+            print(f"✅ Successfully loaded sound: {name}")
+        else:
+            print(f"❌ ERROR: File not found at {path}. Check your 'assets' folder!")
 
     def play_sfx(self, name):
         """Play a specific sound by its key name."""

@@ -26,6 +26,10 @@ class Game:
         self.ui = Interface()
         self.audio = AudioManager()
 
+        # Load sound assets into the mixer
+        self.audio.load_sfx("hit", "assets/hit.wav")
+        self.audio.load_sfx("score", "assets/score.wav")
+
         # Session State
         self.state = "MENU"
         self.winning_score = DEFAULT_WINNING_SCORE
