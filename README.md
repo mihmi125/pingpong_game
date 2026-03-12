@@ -28,6 +28,3 @@ The Ping Pong Game is an exhilarating gaming experience featuring a modular arch
 
 ## 📝 License  
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-Enjoy playing!  
-Happy Gaming!
