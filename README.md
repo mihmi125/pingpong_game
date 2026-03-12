@@ -29,8 +29,5 @@ We welcome contributions! Please check our [contributing guide](CONTRIBUTING.md)
 ## License  
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## Contact  
-For questions or inquiries, please reach out to the maintainer: mihmi125@example.com  
-
 Enjoy playing!  
 Happy Gaming!
