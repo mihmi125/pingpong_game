@@ -22,9 +22,9 @@ The Ping Pong Game is an exhilarating gaming experience featuring a modular arch
 1. Start the game:  
    `python main.py`
 2. Controls:
-  Player 1: W / S keys.
-  Player 2 (PVP): Up / Down arrow keys.
-  Menu: Use the mouse to navigate and ESC to return to the main menu.
+- **Player 1**: W / S keys.  
+- **Player 2 (PVP)**: Up / Down arrow keys.
+- **Menu**: Use the mouse to navigate and ESC to return to the main menu.
 
 ## 📝 License  
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
